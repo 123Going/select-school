@@ -1,8 +1,26 @@
 <style lang="less">
 @color-54: rgba(0,0,0,.54);
 @color-36: rgba(0,0,0,.36);
+@border-color: #e8e8e8;
 html,body{
 	height: 100%;
+}
+.base-content{
+	display: block;
+	content: '';
+	position: absolute;
+	box-sizing: border-box;
+}
+.border-top{
+	.base-content;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	-webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+	border-top: 1px solid @border-color;
 }
 .common{
 	height: 100%;
@@ -37,8 +55,11 @@ html,body{
 		text-indent: 20px;
 		background-color: #f5f5f5;
 		.common;
-		li+li{
-			border-top: 1px solid #eee;
+		li{
+			position: relative;
+		}
+		li+li:after{
+			.border-top;
 		}
 	}
 }
